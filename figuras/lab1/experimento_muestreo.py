@@ -53,8 +53,8 @@ plt.tight_layout(h_pad=3.5)
 
 from pathlib import Path
 
-carpeta = Path("resultados")
-carpeta.mkdir(exist_ok=True)
+carpeta = Path("resultados/lab1/muestreo")
+carpeta.mkdir(parents=True, exist_ok=True)
 
 plt.savefig(
     carpeta / "aliasing_senoidales.png",

@@ -82,7 +82,7 @@ def respuesta_frecuencia(h, fs, n=4096):
 def filtrar(x, h):
     """Aplica h a x (largo igual a x), compensando el retardo (n_coef - 1) / 2."""
 
-    if h % 2 == 0: 
+    if len(h) % 2 == 0: 
         raise ValueError("El número de coeficientes debe ser impar.")
 
     x = np.asarray(x)
