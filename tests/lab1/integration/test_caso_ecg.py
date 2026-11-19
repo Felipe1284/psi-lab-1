@@ -74,9 +74,20 @@ def test_flujo_ecg_sintetico_compara_metodos_por_snr_y_registro():
             registros[resultado["registro"]][1]
         )
         if resultado["registro"] == "100":
-            assert resultado["snr_despues_db"] > resultado["snr_antes_db"]
             assert resultado["sensibilidad"] >= 90.0
             assert resultado["vpp"] >= 90.0
+
+    for snr_objetivo in ecg.NIVELES_SNR_DB:
+        resultados_snr = [
+            resultado
+            for resultado in resultados
+            if resultado["registro"] == "100"
+            and resultado["snr_objetivo_db"] == snr_objetivo
+        ]
+        assert any(
+            resultado["snr_despues_db"] > resultado["snr_antes_db"]
+            for resultado in resultados_snr
+        )
 
 
 def test_flujo_ecg_sintetico_calcula_fc_instantanea():

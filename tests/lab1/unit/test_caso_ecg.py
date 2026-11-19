@@ -112,6 +112,11 @@ def test_convolucion_mismo_tamano_recorta_centrada():
     assert resultado.size == 3
 
 
+def test_filtrar_rechaza_un_numero_par_de_coeficientes():
+    with pytest.raises(ValueError, match="debe ser impar"):
+        filtrar(np.ones(4), np.ones(2))
+
+
 def test_aplicar_notches_filtra_50_y_150_hz(monkeypatch):
     filtros = []
 
