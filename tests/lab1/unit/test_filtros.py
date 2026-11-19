@@ -174,7 +174,8 @@ def test_rf_coincide_con_np_fft():
     """La respuesta en frecuencia coincide con np.fft.fft."""
     rng = np.random.default_rng(5)
     h = rng.standard_normal(31)
-    _, H = respuesta_frecuencia(h, FS, n=513)
+    n=513
+    _, H = respuesta_frecuencia(h, FS, n=n)
     H_np = np.fft.rfft(h, 2 * (n - 1))
     assert np.allclose(H, H_np)
 
