@@ -1,4 +1,5 @@
 import numpy as np
+
 from .dft import dft, idft
 
 # Se prohibe usar la función np.fft, por lo que crearemos una propia
@@ -126,6 +127,7 @@ def convolucion_fft(x, h, rellenar=True):
     # Determina el tipo de dato de salida, para que sea compatible con los tipos de entrada
     # FFT trabaja con números complejos, por lo que el tipo de salida será complejo si alguna de las señales es compleja
     es_real = np.isrealobj(x) and np.isrealobj(h)
+    tipo = np.result_type(x, h, float)
 
     if rellenar:
         # Largo de la convolución lineal completa 

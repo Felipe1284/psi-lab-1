@@ -6,7 +6,7 @@ from scipy.ndimage import median_filter
 from wfdb import rdann, rdrecord
 
 from psi_lab.lab1 import caso_ecg as ecg
-from psi_lab.lab1.filtros import filtrar, fir_pasaaltos, fir_rechazabanda
+from psi_lab.lab1.filtros import filtrar, fir_rechazabanda
 
 
 def test_cargar_datos_filtra_anotaciones_que_no_son_latidos(monkeypatch):

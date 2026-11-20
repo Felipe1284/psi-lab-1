@@ -1,7 +1,9 @@
 import time
 from pathlib import Path
-import numpy as np
+
 import matplotlib.pyplot as plt
+import numpy as np
+
 from psi_lab.lab1.dft import dft
 
 potencias = range(4, 13)
@@ -38,7 +40,7 @@ ax.set_ylabel("Tiempo de ejecución promedio (s)")
 ax.grid(True, which="both", linestyle="--", alpha=0.6)
 ax.legend()
 
-carpeta = Path("resultados/lab1/convolucion")
+carpeta = Path("resultados/lab1/tiempos_ejecucion")
 carpeta.mkdir(parents=True, exist_ok=True)
 plt.savefig(
     carpeta / "tiempos_ejecucion.png", 

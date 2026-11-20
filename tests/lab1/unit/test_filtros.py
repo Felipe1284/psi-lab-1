@@ -1,7 +1,14 @@
 import numpy as np
 import pytest
 
-from psi_lab.lab1.filtros import fir_pasabajos, fir_pasaaltos, fir_pasabanda, fir_rechazabanda, respuesta_frecuencia, filtrar
+from psi_lab.lab1.filtros import (
+    filtrar,
+    fir_pasaaltos,
+    fir_pasabajos,
+    fir_pasabanda,
+    fir_rechazabanda,
+    respuesta_frecuencia,
+)
 
 FS = 1000
 N_COEF = 101

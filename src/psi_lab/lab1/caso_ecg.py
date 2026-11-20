@@ -1,12 +1,12 @@
 import csv
 from pathlib import Path
 
-import wfdb
 import numpy as np
+import wfdb
 from scipy import ndimage, signal
-from psi_lab.lab1.convolucion import convolucion_directa
-from psi_lab.lab1.filtros import fir_pasabanda, fir_pasaaltos, fir_rechazabanda, filtrar
 
+from psi_lab.lab1.convolucion import convolucion_directa
+from psi_lab.lab1.filtros import filtrar, fir_pasaaltos, fir_pasabanda, fir_rechazabanda
 
 ## CONSTANTES GLOBALES
 
@@ -203,7 +203,7 @@ def limpiar_ecg_metodo_alternativo(ecg_ruidoso):
     :return: Señal de ECG limpia tras sustraer la línea base estimada y filtrar la red (np.ndarray).
     """
 
-    ventana_mediana = int(round(0.6 * FS))
+    ventana_mediana = round(0.6 * FS)
     if ventana_mediana % 2 == 0:
         ventana_mediana += 1
 
@@ -234,11 +234,11 @@ def detectar_picos_r(ecg_filtrado):
     senal_deriv = convolucion_mismo_tamano(senal_bp, h_derivada)
     senal_cuadrada = senal_deriv**2
 
-    m_ventana = int(round(0.150 * FS))
+    m_ventana = round(0.150 * FS)
     h_promedio = np.ones(m_ventana) / m_ventana
     senal_integrada = convolucion_mismo_tamano(senal_cuadrada, h_promedio)
 
-    refractario_muestras = int(round(0.200 * FS))
+    refractario_muestras = round(0.200 * FS)
     muestras_iniciales = min(len(senal_integrada), int(2 * FS))
     if muestras_iniciales == 0:
         return []
@@ -285,7 +285,7 @@ def evaluar_deteccion(picos_reales, picos_detectados):
             valor predictivo positivo (%), verdaderos positivos, falsos positivos y falsos negativos.
     """
 
-    tolerancia_muestras = int(round(0.150 * FS))
+    tolerancia_muestras = round(0.150 * FS)
     emparejados_reales = np.zeros(len(picos_reales), dtype=bool)
     tp = 0
     fp = 0
@@ -461,8 +461,7 @@ def generar_figura_espectros(ruta_salida=None, id_registro="100"):
     figura.tight_layout()
 
     if ruta_salida is None:
-        raiz_repo = Path(__file__).resolve().parents[3]
-        ruta_salida = raiz_repo / "informe" / "figuras" / "espectros_ecg.png"
+        ruta_salida = Path.cwd() / "resultados" / "ecg" / "espectros_ecg.png"
     ruta_salida = Path(ruta_salida)
     ruta_salida.parent.mkdir(parents=True, exist_ok=True)
     figura.savefig(ruta_salida, dpi=160)
@@ -501,11 +500,10 @@ def guardar_tabla_metricas(resultados, ruta_salida):
 
 
 def main():
-    raiz_repo = Path(__file__).resolve().parents[3]
     ruta_figura = generar_figura_espectros()
     resultados = evaluar_caso_ecg()
     ruta_tabla = guardar_tabla_metricas(
-        resultados, raiz_repo / "informe" / "tablas" / "evaluacion_ecg.csv"
+        resultados, Path.cwd() / "resultados" / "ecg" / "evaluacion_ecg.csv"
     )
     print(f"Figura espectral generada: {ruta_figura}")
     print(f"Tabla de evaluación generada: {ruta_tabla}")

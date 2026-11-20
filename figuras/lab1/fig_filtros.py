@@ -1,8 +1,16 @@
-import numpy as np
-import matplotlib.pyplot as plt
 from pathlib import Path
 
-from psi_lab.lab1.filtros import fir_pasabajos, fir_pasaaltos, fir_pasabanda, fir_rechazabanda, respuesta_frecuencia, filtrar
+import matplotlib.pyplot as plt
+import numpy as np
+
+from psi_lab.lab1.filtros import (
+    filtrar,
+    fir_pasaaltos,
+    fir_pasabajos,
+    fir_pasabanda,
+    fir_rechazabanda,
+    respuesta_frecuencia,
+)
 
 # ----------------------------------------------------------
 # 1. Obtengan pasaaltos, pasabanda y rechazabanda a partir del pasabajos (inversión espectral,

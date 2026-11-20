@@ -1,9 +1,10 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from pathlib import Path
 import time
+from pathlib import Path
 
-from psi_lab.lab1.convolucion import convolucion_fft, convolucion_directa
+import matplotlib.pyplot as plt
+import numpy as np
+
+from psi_lab.lab1.convolucion import convolucion_directa, convolucion_fft
 
 # ---------------------------------------------------------
 # 2. Muestren qué ocurre si en convolucion_fft no se rellena con ceros: grafiquen el resultado

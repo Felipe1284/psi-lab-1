@@ -1,0 +1,14 @@
+services:
+  tests:
+    build:
+      context: .
+      target: dev
+    image: psi-lab1:dev
+
+  ecg:
+    build:
+      context: .
+      target: runtime
+    image: psi-lab1:runtime
+    volumes:
+      - ./resultados:/app/resultados

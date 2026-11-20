@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from psi_lab.lab1.convolucion import convolucion_fft, convolucion_directa
+from psi_lab.lab1.convolucion import convolucion_directa, convolucion_fft
 
 FUNCTIONS = [convolucion_directa, convolucion_fft]
 LARGOS = [(1, 1), (5, 3), (3, 5), (16, 16), (100, 37), (1000, 101)]

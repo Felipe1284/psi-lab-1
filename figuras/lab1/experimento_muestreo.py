@@ -1,9 +1,8 @@
 
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
-from psi_lab.lab1.muestreo import muestrear, frecuencia_alias
-
+from psi_lab.lab1.muestreo import frecuencia_alias, muestrear
 
 # Parámetros del experimento
 fs = 10

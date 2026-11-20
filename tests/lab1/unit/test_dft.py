@@ -1,4 +1,5 @@
 import numpy as np
+
 from psi_lab.lab1.dft import dft, idft
 
 

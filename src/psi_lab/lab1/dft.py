@@ -1,5 +1,6 @@
 import numpy as np
 
+
 def dft(x):
     """DFT por definicion, O(N^2): X[k] = sum_n x[n] exp(-2j pi k n / N)."""
 

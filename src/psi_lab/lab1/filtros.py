@@ -1,4 +1,5 @@
 import numpy as np
+
 from .convolucion import convolucion_directa, convolucion_fft
 
 # --------------------------------------------------------------------------- #

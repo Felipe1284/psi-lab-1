@@ -3,8 +3,8 @@ import numpy as np
 import pytest
 
 from psi_lab.lab1.muestreo import (
-    muestrear,
     frecuencia_alias,
+    muestrear,
 )
 
 
